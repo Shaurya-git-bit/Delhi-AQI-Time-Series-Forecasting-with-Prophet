@@ -15,20 +15,19 @@ What really stood out was the impact of human activity. During COVID lockdowns, 
 ## How the Prediction Works
 I trained three models: Linear Regression, Random Forest, and XGBoost. Linear Regression gave basic predictions but couldn't handle the complex patterns in the data. Random Forest performed much better, and XGBoost came out on top with 89% accuracy.
 
-<img width="1790" height="790" alt="model_comparison" src="https://github.com/user-attachments/assets/c6cf6c83-08ae-4bdc-bf23-d9a8d2c53851" />
-
+<img width="1790" height="790" alt="BEF_HYP" src="https://github.com/user-attachments/assets/1d362271-4993-45c0-afd7-49be93975487" />
 *Comparing predictions across all three models. The tighter clustering around the diagonal line for XGBoost showed it was capturing patterns the other models missed.*
 
 I also used Facebook's Prophet to forecast future AQI trends. When it correctly predicted the October-November 2025 spike, I was genuinely surprised at how well it worked. That real-world validation made all the hours of tuning hyperparameters worth it.
 
-<img width="1790" height="790" alt="prophet_forecast" src="https://github.com/user-attachments/assets/c6cf6c83-08ae-4bdc-bf23-d9a8d2c53851" />
+<img width="989" height="612" alt="download (1)" src="https://github.com/user-attachments/assets/905ee221-a868-474a-b17e-9a6754b4625e" />
 
 *Prophet forecast from 2021-2026. The blue line shows predictions with confidence intervals. You can see the model caught the 2025 winter spike before it happened—that's when I knew this could actually be useful.*
 
 ## Hyperparameter Tuning
 Getting XGBoost to 89% accuracy wasn't straightforward. The untuned version was decent, but after spending time adjusting learning rates, tree depth, and regularization parameters, the predictions tightened up significantly.
 
-<img width="1790" height="790" alt="xgboost_tuning" src="https://github.com/user-attachments/assets/c6cf6c83-08ae-4bdc-bf23-d9a8d2c53851" />
+<img width="1389" height="590" alt="download" src="https://github.com/user-attachments/assets/05f2775b-ca50-44ac-befb-e5b5fecd3bc2" />
 
 *Before and after hyperparameter tuning. The tuned version (right) shows predictions clustering much closer to actual values, especially in the 200-400 AQI range where accurate forecasts matter most.*
 
@@ -48,6 +47,8 @@ The dataset comes from Kaggle and contains hourly measurements from January 2021
 
 ## Research Paper
 I've also written a research paper documenting this work in detail, covering the methodology, results, and implications. It's currently in the process of being reviewed for publication.
+#### YOU WILL FIND THE RESEARCH PAPER IN THIS REPOSITORY. IT'S NAMED AS "AQI_Paperrr_2025.pdf"
+
 
 ## What I Learned
 This project taught me that building accurate models is only half the battle—understanding what the data actually means and how it can help people is just as important. Working with time series data and handling real-world messiness (missing values, outliers, seasonal variations) was challenging but incredibly rewarding.
