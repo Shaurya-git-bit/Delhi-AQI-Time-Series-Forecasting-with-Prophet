@@ -13,9 +13,24 @@ The seasonal patterns were striking. Winter months consistently have the worst a
 What really stood out was the impact of human activity. During COVID lockdowns, air quality temporarily improved dramatically, but as traffic and industry resumed, pollution levels climbed right back up. It showed me just how much our daily activities contribute to the problem.
 
 ## How the Prediction Works
-I trained three models: Linear Regression, Random Forest, and XGBoost. Linear Regression gave basic predictions but couldn't handle the complex patterns in the data. Random Forest performed much better, and XGBoost came out on top with 89% accuracy. 
+I trained three models: Linear Regression, Random Forest, and XGBoost. Linear Regression gave basic predictions but couldn't handle the complex patterns in the data. Random Forest performed much better, and XGBoost came out on top with 89% accuracy.
+
+<img width="1790" height="790" alt="model_comparison" src="https://github.com/user-attachments/assets/c6cf6c83-08ae-4bdc-bf23-d9a8d2c53851" />
+
+*Comparing predictions across all three models. The tighter clustering around the diagonal line for XGBoost showed it was capturing patterns the other models missed.*
 
 I also used Facebook's Prophet to forecast future AQI trends. When it correctly predicted the October-November 2025 spike, I was genuinely surprised at how well it worked. That real-world validation made all the hours of tuning hyperparameters worth it.
+
+<img width="1790" height="790" alt="prophet_forecast" src="https://github.com/user-attachments/assets/c6cf6c83-08ae-4bdc-bf23-d9a8d2c53851" />
+
+*Prophet forecast from 2021-2026. The blue line shows predictions with confidence intervals. You can see the model caught the 2025 winter spike before it happened—that's when I knew this could actually be useful.*
+
+## Hyperparameter Tuning
+Getting XGBoost to 89% accuracy wasn't straightforward. The untuned version was decent, but after spending time adjusting learning rates, tree depth, and regularization parameters, the predictions tightened up significantly.
+
+<img width="1790" height="790" alt="xgboost_tuning" src="https://github.com/user-attachments/assets/c6cf6c83-08ae-4bdc-bf23-d9a8d2c53851" />
+
+*Before and after hyperparameter tuning. The tuned version (right) shows predictions clustering much closer to actual values, especially in the 200-400 AQI range where accurate forecasts matter most.*
 
 ## Real-World Applications
 These predictions could help residents plan outdoor activities, keep children indoors on high-pollution days, and prepare with air purifiers. Authorities could implement traffic restrictions, limit construction, and issue health alerts in advance. Doctors could warn patients with respiratory or heart conditions and make sure hospitals are prepared with medications.
