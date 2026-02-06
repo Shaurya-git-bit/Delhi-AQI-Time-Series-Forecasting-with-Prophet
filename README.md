@@ -2,7 +2,7 @@
 Predicting dangerous air pollution in Delhi using data and machine learning
 
 ## Why This Matters
-Delhi winters often have dangerously high air pollution, affecting millions of people. I wanted to see if I could predict when pollution would spike so residents, authorities, and doctors could take action ahead of time. Living in Delhi, I've experienced those days when you can barely see across the street, and I thought there had to be a way to anticipate these events better.
+Delhi winters often have dangerously high air pollution, affecting millions of people. I wanted to see if I could predict when pollution would spike so residents, authorities, and doctors could take action ahead of time. Having seen Delhi's winters firsthand during visits, I've experienced those days when you can barely see across the street
 
 ## What I Did
 I analyzed four years of hourly air quality data from 2021 to 2024 and built models to forecast the Air Quality Index (AQI). The models successfully predicted the severe pollution spike in October and November 2025, which was a huge validation that this approach actually works. My analysis showed that PM2.5 and PM10 are the main culprits behind poor air quality, while gases like CO, NO₂, SO₂, and O₃ have much weaker effects.
