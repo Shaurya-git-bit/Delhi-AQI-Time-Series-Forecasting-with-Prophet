@@ -45,10 +45,5 @@ Python, Pandas, NumPy, Scikit-learn, XGBoost, Prophet, Matplotlib, Seaborn, Jupy
 ## Dataset
 The dataset comes from Kaggle and contains hourly measurements from January 2021 to December 2024, tracking six pollutants: PM2.5, PM10, CO, NO₂, SO₂, and O₃.
 
-## Research Paper
-I've also written a research paper documenting this work in detail, covering the methodology, results, and implications. It's currently in the process of being reviewed for publication.
-#### YOU WILL FIND THE RESEARCH PAPER IN THIS REPOSITORY. IT'S NAMED AS "AQI_Paperrr_2025.pdf"
-
-
 ## What I Learned
 This project taught me that building accurate models is only half the battle—understanding what the data actually means and how it can help people is just as important. Working with time series data and handling real-world messiness (missing values, outliers, seasonal variations) was challenging but incredibly rewarding.
