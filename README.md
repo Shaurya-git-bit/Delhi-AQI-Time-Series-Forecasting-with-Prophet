@@ -45,5 +45,7 @@ Python, Pandas, NumPy, Scikit-learn, XGBoost, Prophet, Matplotlib, Seaborn, Jupy
 ## Dataset
 The dataset comes from Kaggle and contains hourly measurements from January 2021 to December 2024, tracking six pollutants: PM2.5, PM10, CO, NO₂, SO₂, and O₃.
 
+https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset
+
 ## What I Learned
 This project taught me that building accurate models is only half the battle—understanding what the data actually means and how it can help people is just as important. Working with time series data and handling real-world messiness (missing values, outliers, seasonal variations) was challenging but incredibly rewarding.
