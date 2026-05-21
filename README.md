@@ -1,51 +1,63 @@
-# Delhi Air Quality Forecasting
-Predicting dangerous air pollution in Delhi using data and machine learning
+# Delhi AQI Forecasting — Machine Learning & Time Series Analysis
 
-## Why This Matters
-Delhi winters often have dangerously high air pollution, affecting millions of people. I wanted to see if I could predict when pollution would spike so residents, authorities, and doctors could take action ahead of time. Having seen Delhi's winters firsthand during visits, I've experienced those days when you can barely see across the street
+This repository contains the full analysis pipeline for forecasting Delhi's Air Quality Index (AQI) using machine learning and time series models. The project uses four years of daily air quality data (2021–2024) from NSUT's campus monitoring station and validates a long-range Prophet forecast against actual CPCB AQI bulletin data from October–November 2025.
 
-## What I Did
-I analyzed four years of hourly air quality data from 2021 to 2024 and built models to forecast the Air Quality Index (AQI). The models successfully predicted the severe pollution spike in October and November 2025, which was a huge validation that this approach actually works. My analysis showed that PM2.5 and PM10 are the main culprits behind poor air quality, while gases like CO, NO₂, SO₂, and O₃ have much weaker effects.
+---
+
+## Repository Structure
+
+- `Delhi_AQI_EDA.ipynb` — Exploratory Data Analysis
+- `Delhi_AQI_ML.ipynb` — Machine Learning Models & Prophet Forecasting
+
+---
+
+## EDA Notebook
+
+Covers the full data exploration pipeline:
+
+- **Dataset**: 1,461 daily observations of PM2.5, PM10, NO2, SO2, CO, and Ozone from NSUT's campus station (Kaggle)
+- **Correlation analysis**: Pearson correlations between each pollutant and AQI, with scatter plots and a heatmap
+- **Multicollinearity check**: VIF calculated for both raw pollutant features and 24 lagged features
+- **Seasonal decomposition**: Additive decomposition separating AQI into trend, seasonal, and residual components
+- **Lag feature construction**: Pollutant values at 1, 2, 3, and 7-day lags created to avoid same-time target leakage
+
+---
+
+## ML Notebook
+
+Covers model training, evaluation, and forecasting:
+
+- **Models**: Linear Regression (baseline), Random Forest, and XGBoost trained on 24 lagged pollutant features
+- **Data split**: Chronological 80/20 split with five-fold TimeSeriesSplit for cross-validation and hyperparameter tuning
+- **Tuning**: RandomizedSearchCV with TimeSeriesSplit used for both Random Forest and XGBoost
+- **Evaluation metrics**: RMSE, MAE, R², and MAPE reported before and after tuning
+- **CPCB benchmark**: Rule-based AQI calculation included to contextualize ML model performance
+- **SHAP analysis**: TreeSHAP applied to the tuned XGBoost model with beeswarm and bar plots
+- **Prophet forecasting**: Long-range forecast through 2026 with trend/seasonality decomposition
+- **Baselines**: Seasonal naïve and SARIMA models included for honest Prophet comparison
+- **2025 validation**: Prophet forecast validated against actual CPCB Daily AQI Bulletins (Oct–Nov 2025)
+
+---
 
 ## Key Findings
-The seasonal patterns were striking. Winter months consistently have the worst air quality, often exceeding an AQI of 400 (dangerous to breathe outside). Monsoon months are relatively clean since rainfall clears the air, while spring and fall sit somewhere in the middle. 
 
-What really stood out was the impact of human activity. During COVID lockdowns, air quality temporarily improved dramatically, but as traffic and industry resumed, pollution levels climbed right back up. It showed me just how much our daily activities contribute to the problem.
+- XGBoost achieved the best post-tuning performance (R² = 0.499, RMSE = 72.61)
+- Short-term PM2.5 and PM10 lags dominated SHAP feature importance
+- Prophet correctly classified 95.08% of days where AQI exceeded 400
+- The CPCB rule-based benchmark outperformed all lagged ML models, confirming the lagged task is genuinely harder
 
-## How the Prediction Works
-I trained three models: Linear Regression, Random Forest, and XGBoost. Linear Regression gave basic predictions but couldn't handle the complex patterns in the data. Random Forest performed much better, and XGBoost came out on top with 89% accuracy.
+---
 
-<img width="1790" height="790" alt="BEF_HYP" src="https://github.com/user-attachments/assets/1d362271-4993-45c0-afd7-49be93975487" />
-*Comparing predictions across all three models. The tighter clustering around the diagonal line for XGBoost showed it was capturing patterns the other models missed.*
+## Requirements
 
-I also used Facebook's Prophet to forecast future AQI trends. When it correctly predicted the October-November 2025 spike, I was genuinely surprised at how well it worked. That real-world validation made all the hours of tuning hyperparameters worth it.
+```bash
+pip install pandas numpy scikit-learn xgboost prophet shap pmdarima matplotlib seaborn statsmodels
+```
 
-<img width="989" height="612" alt="download (1)" src="https://github.com/user-attachments/assets/905ee221-a868-474a-b17e-9a6754b4625e" />
+---
 
-*Prophet forecast from 2021-2026. The blue line shows predictions with confidence intervals. You can see the model caught the 2025 winter spike before it happened—that's when I knew this could actually be useful.*
+## Data Source
 
-## Hyperparameter Tuning
-Getting XGBoost to 89% accuracy wasn't straightforward. The untuned version was decent, but after spending time adjusting learning rates, tree depth, and regularization parameters, the predictions tightened up significantly.
+[Delhi Air Quality Dataset — Kaggle](https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset)
 
-<img width="1389" height="590" alt="download" src="https://github.com/user-attachments/assets/05f2775b-ca50-44ac-befb-e5b5fecd3bc2" />
-
-*Before and after hyperparameter tuning. The tuned version (right) shows predictions clustering much closer to actual values, especially in the 200-400 AQI range where accurate forecasts matter most.*
-
-## Real-World Applications
-These predictions could help residents plan outdoor activities, keep children indoors on high-pollution days, and prepare with air purifiers. Authorities could implement traffic restrictions, limit construction, and issue health alerts in advance. Doctors could warn patients with respiratory or heart conditions and make sure hospitals are prepared with medications.
-
-My goal was to build something that goes beyond just a school project—something that could actually be useful for people dealing with this crisis every winter.
-
-## How It Was Built
-I started by collecting and cleaning over 35,000 hourly measurements, which took way longer than I expected. Spent a lot of time exploring correlations and seasonal trends to understand what was actually driving the pollution. Then I built the machine learning models and fine-tuned them for better accuracy. The hardest part was validating predictions against actual 2025 AQI data, but that's what made me confident the model was reliable.
-
-## Tools Used
-Python, Pandas, NumPy, Scikit-learn, XGBoost, Prophet, Matplotlib, Seaborn, Jupyter Notebook
-
-## Dataset
-The dataset comes from Kaggle and contains hourly measurements from January 2021 to December 2024, tracking six pollutants: PM2.5, PM10, CO, NO₂, SO₂, and O₃.
-
-https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset
-
-## What I Learned
-This project taught me that building accurate models is only half the battle—understanding what the data actually means and how it can help people is just as important. Working with time series data and handling real-world messiness (missing values, outliers, seasonal variations) was challenging but incredibly rewarding.
+2025 validation data sourced from [CPCB Daily AQI Bulletins](https://cpcb.nic.in/)
