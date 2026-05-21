@@ -6,8 +6,8 @@ This repository contains the full analysis pipeline for forecasting Delhi's Air 
 
 ## Repository Structure
 
-- `Delhi_AQI_EDA.ipynb` — Exploratory Data Analysis
-- `Delhi_AQI_ML.ipynb` — Machine Learning Models & Prophet Forecasting
+- `Delhi_AQI_EDA.ipynb` - Exploratory Data Analysis
+- `Delhi_AQI_ML.ipynb` - Machine Learning Models & Prophet Forecasting
 
 ---
 
@@ -58,6 +58,6 @@ pip install pandas numpy scikit-learn xgboost prophet shap pmdarima matplotlib s
 
 ## Data Source
 
-[Delhi Air Quality Dataset — Kaggle](https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset)
+[Delhi Air Quality Dataset - Kaggle](https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset)
 
 2025 validation data sourced from [CPCB Daily AQI Bulletins](https://cpcb.nic.in/)
