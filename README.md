@@ -58,6 +58,6 @@ pip install pandas numpy scikit-learn xgboost prophet shap pmdarima matplotlib s
 
 ## Data Source
 
-[Delhi Air Quality Dataset - Kaggle](https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset)
+[Delhi Air Quality Dataset - Kaggle](https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset?select=final_dataset.csv)
 
 2025 validation data sourced from [CPCB Daily AQI Bulletins](https://cpcb.nic.in/)
