@@ -1,6 +1,6 @@
 # Delhi AQI Forecasting — Machine Learning & Time Series Analysis
 
-This repository contains the full analysis pipeline for forecasting Delhi's Air Quality Index (AQI) using machine learning and time series models. The project uses four years of daily air quality data (2021–2024) from NSUT's campus monitoring station and validates a long-range Prophet forecast against actual CPCB AQI bulletin data from October–November 2025.
+This repository contains the full analysis pipeline for forecasting Delhi's Air Quality Index (AQI) using machine learning and time series models. The project uses four years of daily air quality data (2021–2024) from DTU's campus monitoring station and validates a long-range Prophet forecast against actual CPCB AQI bulletin data from October–November 2025.
 
 ---
 
@@ -15,7 +15,7 @@ This repository contains the full analysis pipeline for forecasting Delhi's Air 
 
 Covers the full data exploration pipeline:
 
-- **Dataset**: 1,461 daily observations of PM2.5, PM10, NO2, SO2, CO, and Ozone from NSUT's campus station (Kaggle)
+- **Dataset**: 1,461 daily observations of PM2.5, PM10, NO2, SO2, CO, and Ozone from DTU's campus station (Kaggle)
 - **Correlation analysis**: Pearson correlations between each pollutant and AQI, with scatter plots and a heatmap
 - **Multicollinearity check**: VIF calculated for both raw pollutant features and 24 lagged features
 - **Seasonal decomposition**: Additive decomposition separating AQI into trend, seasonal, and residual components
