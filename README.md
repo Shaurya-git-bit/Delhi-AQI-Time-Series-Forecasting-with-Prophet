@@ -7,7 +7,7 @@ This repository contains the full analysis pipeline for forecasting Delhi's Air 
 ## Repository Structure
 
 - `Delhi_AQI_EDA.ipynb` - Exploratory Data Analysis
-- `Delhi_AQI_ML.ipynb` - Machine Learning Models & Prophet Forecasting
+- `Delhi_AQI_ML_.ipynb` - Machine Learning Models & Prophet Forecasting
 
 ---
 
