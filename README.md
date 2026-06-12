@@ -1,6 +1,6 @@
 # Delhi AQI Forecasting — Machine Learning & Time Series Analysis
 
-This repository contains the full analysis pipeline for forecasting Delhi's Air Quality Index (AQI) using machine learning and time series models. The project uses four years of daily air quality data (2021–2024) from DTU's campus monitoring station and validates a long-range Prophet forecast against actual CPCB AQI bulletin data from October–November 2025.
+This repository contains the full analysis pipeline for forecasting Delhi's Air Quality Index (AQI) using machine learning and time series models. The project uses four years of daily air quality data (2021–2024) from DTU's campus monitoring station and validates a long-range Prophet forecast against actual AQI data recorded from pollutants at DTU station from October–November 2025.
 
 ---
 
@@ -35,7 +35,7 @@ Covers model training, evaluation, and forecasting:
 - **SHAP analysis**: TreeSHAP applied to the tuned XGBoost model with beeswarm and bar plots
 - **Prophet forecasting**: Long-range forecast through 2026 with trend/seasonality decomposition
 - **Baselines**: Seasonal naïve and SARIMA models included for honest Prophet comparison
-- **2025 validation**: Prophet forecast validated against actual CPCB Daily AQI Bulletins (Oct–Nov 2025)
+- **2025 validation**: Prophet forecast validated against actual AQI calculated from pollutants (DTU station) (Oct–Nov 2025)
 
 ---
 
@@ -43,7 +43,7 @@ Covers model training, evaluation, and forecasting:
 
 - XGBoost achieved the best post-tuning performance (R² = 0.499, RMSE = 72.61)
 - Short-term PM2.5 and PM10 lags dominated SHAP feature importance
-- Prophet correctly classified 95.08% of days where AQI exceeded 400
+- Prophet correctly classified 69.39% of days where AQI exceeded 400
 - The CPCB rule-based benchmark outperformed all lagged ML models, confirming the lagged task is genuinely harder
 
 ---
