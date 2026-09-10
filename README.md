@@ -4,6 +4,8 @@ This repository contains the full analysis pipeline for forecasting Delhi's Air 
 
 ---
 
+## [Published Work](https://nhsjs.com/2026/forecasting-and-validating-delhis-air-quality-index-using-machine-learning-a-multi-model-approach-with-real-world-verification/)
+
 ## Repository Structure
 
 - `Delhi_AQI_EDA.ipynb` - Exploratory Data Analysis
